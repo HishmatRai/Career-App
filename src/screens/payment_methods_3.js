@@ -8,14 +8,15 @@ import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
-import ToggleButton from './../components/toggle_button'
+import ToggleButton from '../components/toggle_button'
 import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-import Chackbox from './../components/checkbox'
+import Chackbox from '../components/checkbox'
+import { round } from "react-native-reanimated";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
-const PaymentMethods2 = (props) => {
+const PaymentMethods3 = (props) => {
     const [dimensions, setDimensions] = useState({ window, screen });
 
     const onChange = ({ window, screen }) => {
@@ -51,33 +52,45 @@ const PaymentMethods2 = (props) => {
                 <View style={{ margin: 20 }}>
 
                     <TouchableOpacity style={styles._add_card_details_main}>
-                        <TouchableOpacity style={styles._more} >
-                            <Feather name="more-horizontal" size={24} color="white" />
-                        </TouchableOpacity>
-                        <View style={{ marginTop: 5, marginLeft: 20 }}>
+                        <View style={{ flexDirection: "row", marginTop: 20, marginLeft: 20, marginRight: 20, justifyContent: "space-between" }}>
                             <Image source={require('./../../assets/Paypal.png')} />
+                            <TouchableOpacity style={styles._more} >
+                            </TouchableOpacity>
+
+                        </View>
+                        <View style={{ marginTop: 5, marginLeft: 20 }}>
                             <Text style={styles._email}>myself@gmail.com</Text>
                             <Text style={styles._added_Date}>Added on 15/12/2017</Text>
                         </View>
                     </TouchableOpacity>
 
-
                     <TouchableOpacity style={styles._add_card_details_main}>
-                        <TouchableOpacity style={styles._more} >
-                            <Feather name="more-horizontal" size={24} color="white" />
-                        </TouchableOpacity>
-                        <View style={{ marginTop: 5, marginLeft: 20 }}>
+                        <View style={{ flexDirection: "row", marginTop: 20, marginLeft: 20, marginRight: 20, justifyContent: "space-between" }}>
                             <Image source={require('./../../assets/visa.png')} />
+                            <TouchableOpacity style={styles._more2} >
+                            </TouchableOpacity>
+
+                        </View>
+                        <View style={{ marginTop: 5, marginLeft: 20 }}>
                             <Text style={styles._email}>**** **** **** 0817</Text>
                             <Text style={styles._added_Date}>Expiry Date 10/19</Text>
                         </View>
                     </TouchableOpacity>
-                    {/* <<<<<<<<<<<<<<<< nexr stap button >>>>>>>>>>> */}
-                    <TouchableOpacity style={styles._next_stap}
-                    onPress={() => props.navigation.navigate("PaymentMethods3")}
-                    >
-                        <Text style={styles._next_stap_text}>Add Payment Method</Text>
+
+                    <TouchableOpacity style={styles._add_card_details_main}>
+                        <View style={{ flexDirection: "row", marginTop: 20, marginLeft: 20, marginRight: 20, justifyContent: "space-between" }}>
+                            <Image source={require('./../../assets/Mastercard.png')} />
+                            <TouchableOpacity style={styles._more2} >
+                            </TouchableOpacity>
+
+                        </View>
+                        <View style={{ marginTop: 5, marginLeft: 20 }}>
+                            <Text style={styles._email}>**** **** **** 0817</Text>
+                            <Text style={styles._added_Date}>Expiry Date 10/19</Text>
+                        </View>
                     </TouchableOpacity>
+
+
                     <View style={{ marginBottom: 30 }}></View>
                 </View>
             </ScrollView>
@@ -129,10 +142,22 @@ const styles = StyleSheet.create({
 
 
     _more: {
+        // backgroundColor: "#FF5757",
+        width: 30,
+        height: 30,
+        alignItems: "center",
+        borderRadius: 100,
+        borderColor: "#FF5757",
+        borderWidth: 1
+
+    },
+    _more2: {
         backgroundColor: "#FF5757",
         width: 30,
+        height: 30,
         alignItems: "center",
-        alignSelf: "flex-end"
+        borderRadius: 100,
+
 
     },
     _email: {
@@ -154,4 +179,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default PaymentMethods2;
+export default PaymentMethods3;

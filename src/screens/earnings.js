@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, TouchableOpacityBase, ScrollView } from "react-native";
+import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, Picker, ScrollView } from "react-native";
 import { Zocial } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
+import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 import ToggleButton from './../components/toggle_button'
 const window = Dimensions.get("window");
@@ -18,7 +18,7 @@ const Earnings = (props) => {
     const onChange = ({ window, screen }) => {
         setDimensions({ window, screen });
     };
-
+    const [selectedValue, setSelectedValue] = useState("java");
     useEffect(() => {
         Dimensions.addEventListener("change", onChange);
         return () => {
@@ -32,7 +32,9 @@ const Earnings = (props) => {
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  HEADER SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => props.navigation.goBack()}
+                >
                     <Ionicons name="md-arrow-round-back" size={24} color="#FF5757" />
                 </TouchableOpacity >
                 <TouchableOpacity>
@@ -60,12 +62,23 @@ const Earnings = (props) => {
                     {/* <<<<<<<<<<<<<<<  Earning in Month >>>>>>>>>>>> */}
                     <View style={{ flexDirection: "row", marginTop: 40, justifyContent: "space-between" }}>
                         <Text style={styles._earning_in_month}>Earning in Month</Text>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
+                        {/* <TouchableOpacity style={{ flexDirection: "row" }}>
                             <Text style={styles._user_first_name}>Johan</Text>
-                        </TouchableOpacity>
+
+                        </TouchableOpacity> */}
                     </View>
 
-
+                    {/* dropdown */}
+                    <View style={styles._dropdown}>
+                        <Picker
+                            selectedValue={selectedValue}
+                            style={{ height: 30, width: "90%" }}
+                            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                        >
+                            <Picker.Item label="January" value="java" />
+                            <Picker.Item label="Febuary" value="js" />
+                        </Picker>
+                    </View>
                     {/* <<<<<<<<<<<<<<<  Videos >>>>>>>>>>>> */}
                     <View style={{ flexDirection: "row", marginTop: 20, justifyContent: "space-between" }}>
                         <Text style={styles._video_section}>Video Session</Text>
@@ -180,7 +193,20 @@ const styles = StyleSheet.create({
     _video_section: {
         color: "black",
         fontSize: 13
-    }
+    },
+    _dropdown: {
+        marginRight: "2%",
+        marginLeft: "55%",
+        borderRadius: 30,
+        color: "red",
+        textAlign: "center",
+        justifyContent: "center",
+        color: "white",
+        // backgroundColor:"red",
+        marginTop: -30,
+        borderColor: "#FF5757",
+        borderWidth: 1
+    },
 
 
 });

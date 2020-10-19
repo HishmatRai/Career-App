@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, TouchableOpacityBase, ScrollView } from "react-native";
-import { Zocial } from '@expo/vector-icons';
+import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, Picker, ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
-import { Fontisto } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
+import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 import ToggleButton from './../components/toggle_button'
+import Dropdownw from '../components/datepicker'
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
@@ -18,7 +15,7 @@ const Profile = (props) => {
     const onChange = ({ window, screen }) => {
         setDimensions({ window, screen });
     };
-
+    const [selectedValue, setSelectedValue] = useState("java");
     useEffect(() => {
         Dimensions.addEventListener("change", onChange);
         return () => {
@@ -32,7 +29,9 @@ const Profile = (props) => {
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  HEADER SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.goBack()}
+                >
                     <Ionicons name="md-arrow-round-back" size={24} color="#FF5757" />
                 </TouchableOpacity >
                 <TouchableOpacity>
@@ -50,7 +49,9 @@ const Profile = (props) => {
                 <View style={{ margin: 20 }}>
                     <View style={{ alignItems: "center" }}>
                         {/* <<<<<<<<<<<<<<<  User Profile >>>>>>>>>>>> */}
-                        <TouchableOpacity style={styles._profile_main}>
+                        <TouchableOpacity style={styles._profile_main}
+                            onPress={() => props.navigation.navigate("CameraScreen")}
+                        >
                             <Image source={require('./../../assets/profile.png')} style={styles._profile} />
                         </TouchableOpacity>
 
@@ -101,31 +102,57 @@ const Profile = (props) => {
                     {/* <<<<<<<<<<<<<<< Date of Birth >>>>>>>>>>>> */}
                     <View style={styles._user_details_main}>
                         <Text style={styles._first_name}>Date Of Birth</Text>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
+                        {/* <TouchableOpacity style={{ flexDirection: "row" }}>
                             <Text style={styles._user_first_name}>+88012345699</Text>
                             <MaterialIcons name="edit" size={20} color="#FF5757" />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
+                        <View style={styles._date_picker}>
+
+                            <Dropdown />
+                        </View>
                     </View>
 
 
                     {/* <<<<<<<<<<<<<<< Locaion >>>>>>>>>>>> */}
                     <View style={styles._user_details_main}>
                         <Text style={styles._first_name}>Locaion</Text>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
+                        {/* <TouchableOpacity style={{ flexDirection: "row" }}>
                             <Text style={styles._user_first_name}>+88012345699</Text>
                             <MaterialIcons name="edit" size={20} color="#FF5757" />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
+                    </View>
+                    {/* dropdown */}
+                    <View style={styles._dropdown}>
+                        <Picker
+                            selectedValue={selectedValue}
+                            style={{ height: 30, width: "90%" }}
+                            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                        >
+                            <Picker.Item label="Select" value="java" />
+                            <Picker.Item label="Select" value="js" />
+                        </Picker>
                     </View>
 
                     {/* <<<<<<<<<<<<<<<  Area Of Interest >>>>>>>>>>>> */}
+                    <View style={{ marginTop: 30 }}></View>
                     <View style={{ flexDirection: "row", marginTop: 40, justifyContent: "space-between" }}>
                         <Text style={styles._first_name}>Area Of Interest</Text>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
+                        {/* <TouchableOpacity style={{ flexDirection: "row" }}>
                             <Text style={styles._user_first_name}>Johan</Text>
                             <MaterialIcons name="edit" size={20} color="#FF5757" />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
-
+                    {/* dropdown */}
+                    <View style={styles._dropdown2}>
+                        <Picker
+                            selectedValue={selectedValue}
+                            style={{ height: 30, width: "90%" }}
+                            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                        >
+                            <Picker.Item label="Select" value="java" />
+                            <Picker.Item label="Select" value="js" />
+                        </Picker>
+                    </View>
 
                     {/* <<<<<<<<<<<<<<<  Linkedin >>>>>>>>>>>> */}
                     <View style={{ flexDirection: "row", marginTop: 70, justifyContent: "space-between" }}>
@@ -217,7 +244,31 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 20,
         paddingBottom: 5
-    }
+    },
+    _dropdown: {
+        marginRight: "2%",
+        marginLeft: "60%",
+        borderRadius: 30,
+        color: "red",
+        textAlign: "center",
+        justifyContent: "center",
+        color: "white",
+        // backgroundColor:"red",
+        marginTop: -50,
+
+    },
+    _dropdown2: {
+        marginRight: "2%",
+        marginLeft: "60%",
+        borderRadius: 30,
+        color: "red",
+        textAlign: "center",
+        justifyContent: "center",
+        color: "white",
+        // backgroundColor:"red",
+        marginTop: -30,
+
+    },
 
 
 });

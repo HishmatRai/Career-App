@@ -15,7 +15,7 @@ class App extends Component {
         showMe: false
       })
     },
-      200)
+      4000)
 
   }
   render() {

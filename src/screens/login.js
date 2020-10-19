@@ -4,6 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
@@ -51,11 +52,13 @@ const Login = (props) => {
                 <View style={styles._login_button_main_view}>
 
                     <TouchableOpacity style={styles._button}
-                        onPress={() => props.navigation.navigate("Search")}>
+                        onPress={() => props.navigation.navigate("CareerSearch")}>
                         <Text style={styles._button_txt}>Sign In</Text></TouchableOpacity>
 
                     <TouchableOpacity style={styles._button2}
-                        onPress={() => props.navigation.navigate("Search")}>
+                        onPress={() => props.navigation.navigate("CareerSearch")}
+                    >
+
                         <Text style={styles._button_txt}>Sign Up</Text></TouchableOpacity>
                 </View>
 
@@ -76,7 +79,7 @@ const Login = (props) => {
                 {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  SIGN UP AS A MENTOR SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
                 <View style={{ alignItems: "flex-end", marginRight: 20, marginTop: 20 }}>
                     <TouchableOpacity style={{ flexDirection: "row" }}
-                        onPress={() => props.navigation.navigate("Search")}
+                        onPress={() => props.navigation.navigate("CareerSearch")}
                     >
                         <Entypo name="log-out" size={24} color="#FF5757" />
                         <Text style={{ color: "#FF5757" }}>Sign up as a Mentor</Text>
@@ -153,6 +156,7 @@ const styles = StyleSheet.create({
 
 
     },
+
     _button_txt: {
         color: "white",
         fontWeight: "bold",

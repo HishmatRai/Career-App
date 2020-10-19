@@ -6,7 +6,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
+import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 import ToggleButton from './../components/toggle_button'
 import { Entypo } from '@expo/vector-icons';
@@ -34,7 +34,9 @@ const PaymentMethods1 = (props) => {
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  HEADER SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => props.navigation.goBack()}
+                >
                     <Ionicons name="md-arrow-round-back" size={24} color="#FF5757" />
                 </TouchableOpacity >
                 <TouchableOpacity>
@@ -79,12 +81,16 @@ const PaymentMethods1 = (props) => {
                         </View>
 
                         {/* <<<<<<<<<<<<<<<< nexr stap button >>>>>>>>>>> */}
-                        <TouchableOpacity style={styles._next_stap}>
+                        <TouchableOpacity style={styles._next_stap}
+                        onPress={() => props.navigation.navigate("PaymentMethods2")}
+                        >
                             <Text style={styles._next_stap_text}>Next Stap</Text>
                         </TouchableOpacity>
 
                         {/* <<<<<<<<<<<<<<<< back button >>>>>>>>>>> */}
-                        <TouchableOpacity style={styles._scan_button}>
+                        <TouchableOpacity style={styles._scan_button}
+                        onPress={() => props.navigation.goBack()}
+                        >
                             <Text style={styles._scan_button_text}>Back</Text>
                         </TouchableOpacity>
                         <View style={{ paddingBottom: 20 }}></View>

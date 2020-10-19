@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, ScrollView, TextInput, TouchableOpacityBase } from "react-native";
+import { View, StyleSheet, Text, Dimensions, StatusBar, TouchableOpacity, ScrollView } from "react-native";
 import { Zocial } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 const window = Dimensions.get("window");
@@ -41,10 +40,15 @@ const CareerSearch = (props) => {
                 <TouchableOpacity style={{ marginLeft: 50 }}>
                     <AntDesign name="search1" size={24} color="#FF5757" />
                 </TouchableOpacity>
-                <TouchableOpacity >
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Profile")}
+
+                >
                     <FontAwesome name="user" size={24} color="#FF5757" />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Notification")}
+                >
                     <Ionicons name="md-notifications-outline" size={24} color="#FF5757" />
                 </TouchableOpacity>
             </View>
@@ -187,11 +191,16 @@ const CareerSearch = (props) => {
                     <Ionicons name="ios-clipboard" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Career Boards</Text>
                 </TouchableOpacity>
-                <TouchableOpacity >
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Mentors")}
+
+                >
                     <MaterialCommunityIcons name="comment-account-outline" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Mentors</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Settings")}
+                >
                     <Fontisto name="player-settings" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Settings</Text>
                 </TouchableOpacity>

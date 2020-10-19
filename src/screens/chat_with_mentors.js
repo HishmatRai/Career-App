@@ -6,7 +6,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
+import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 import ToggleButton from './../components/toggle_button'
 import { Entypo } from '@expo/vector-icons';
@@ -33,7 +33,9 @@ const ChatWithMentors = (props) => {
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  HEADER SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => props.navigation.goBack()}>
+                
                     <Entypo name="chevron-left" size={24} color="#FF5757" />
                 </TouchableOpacity >
                 <TouchableOpacity>
@@ -49,7 +51,8 @@ const ChatWithMentors = (props) => {
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Profile    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={{ flexDirection: "row" }}>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} >
-                    <TouchableOpacity style={styles._profile_main}>
+                    <TouchableOpacity style={styles._profile_main}
+                   onPress={() => props.navigation.navigate("Profile")}>
                         <Image source={require('./../../assets/mentorschat1.png')} style={styles._profile} />
                     </TouchableOpacity>
 
@@ -86,8 +89,99 @@ const ChatWithMentors = (props) => {
 
 
 
-            <ScrollView horizontal>
-                <View style={{ margin: 20, flexDirection: "row" }}>
+            <ScrollView >
+                <View style={{ margin: 20,marginTop:70 }}>
+                    {/*<<<<<<<<<<<<<<<<<<<<<< user first message receive >>>>>>>>>>>>>>> */}
+                    <View style={{ flexDirection: "row", width: "90%" }}>
+                        <View style={styles._profile_main_of_receive_message}>
+                            <Image source={require('./../../assets/mentorschat2.png')} style={styles._profile_main_of_receive_message} />
+                        </View>
+                        <View style={{ flexDirection: "row", alignItems: "center", width: "80%" }}>
+                            <Image source={require('./../../assets/first_messge_receive.png')} style={{ width: 17, height: 17 }} />
+                            <Text style={styles.first_messge_receive}>fsdfdsfdfds</Text>
+                        </View>
+                    </View>
+                    {/*<<<<<<<<<<<<<<<<<<<<<< user 2nd message receive >>>>>>>>>>>>>>> */}
+                    <View style={{ flexDirection: "row", width: "90%" }}>
+                        <View style={styles._profile_main_of_receive_message}></View>
+                        <View style={{ flexDirection: "row", alignItems: "center", width: "80%" }}>
+                            <Image source={require('./../../assets/second_messge_receive.png')} style={{ width: 17, height: 17 }} />
+                            <Text style={styles.first_messge_receive}>fsdfdsf fsd fsd fs df dsfd sf sddfdsf ds fd s dfds f sdfdfds</Text>
+                        </View>
+                    </View>
+
+                    {/*<<<<<<<<<<<<<<<<<<<<<< user first message send >>>>>>>>>>>>>>> */}
+                    <View style={{ flexDirection: "row", width: "90%", marginTop: 10, alignSelf: "flex-end" }}>
+                        <View style={{ alignItems: "center", marginTop: 10 }}>
+                            <View style={{ flexDirection: "row", alignItems: "center", width: "80%", alignSelf: "flex-end", justifyContent: "flex-end", marginRight: 10 }}>
+                                <Text style={styles.first_messge_sent}>fsdfdds</Text>
+                                <Image source={require('./../../assets/first_messge_sent.png')} style={{ width: 17, height: 17 }} />
+                            </View>
+                        </View>
+                        <View style={styles._profile_main_of_receive_message}>
+                            <Image source={require('./../../assets/mentorschat5.png')} style={styles._profile_main_of_sent_message} />
+                        </View>
+                    </View>
+
+                    {/*<<<<<<<<<<<<<<<<<<<<<< user first message receive >>>>>>>>>>>>>>> */}
+                    <View style={{ flexDirection: "row", width: "90%" }}>
+                        <View style={styles._profile_main_of_receive_message}>
+                            <Image source={require('./../../assets/mentorschat2.png')} style={styles._profile_main_of_receive_message} />
+                        </View>
+                        <View style={{ flexDirection: "row", alignItems: "center", width: "80%" }}>
+                            <Image source={require('./../../assets/first_messge_receive.png')} style={{ width: 17, height: 17 }} />
+                            <Text style={styles.first_messge_receive}>fsdfdsfdfds</Text>
+                        </View>
+                    </View>
+
+
+                    {/*<<<<<<<<<<<<<<<<<<<<<< user first message send >>>>>>>>>>>>>>> */}
+                    <View style={{ flexDirection: "row", width: "90%", marginTop: 10, alignSelf: "flex-end" }}>
+                        <View style={{ alignItems: "center", marginTop: 10 }}>
+                            <View style={{ flexDirection: "row", alignItems: "center", width: "80%", alignSelf: "flex-end", justifyContent: "flex-end", marginRight: 10 }}>
+                                <Text style={styles.first_messge_sent}>fsdf ds ds ds ddds</Text>
+                                <Image source={require('./../../assets/first_messge_sent.png')} style={{ width: 17, height: 17 }} />
+                            </View>
+                        </View>
+                        <View style={styles._profile_main_of_receive_message}>
+                            <Image source={require('./../../assets/mentorschat5.png')} style={styles._profile_main_of_sent_message} />
+                        </View>
+                    </View>
+                    {/*<<<<<<<<<<<<<<<<<<<<<< user second message send >>>>>>>>>>>>>>> */}
+                    <View style={{ flexDirection: "row", width: "90%", alignSelf: "flex-end" }}>
+                        <View style={{ alignItems: "center", marginTop: 10 }}>
+                            <View style={{ flexDirection: "row", alignItems: "center", width: "80%", alignSelf: "flex-end", justifyContent: "flex-end", marginRight: 10 }}>
+                                <Text style={styles.first_messge_sent}>fsdf ds ds ds ddds</Text>
+                                <Image source={require('./../../assets/second_messge_sent.png')} style={{ width: 17, height: 17 }} />
+                            </View>
+                        </View>
+                        <View style={styles._profile_main_of_receive_message}>
+                        </View>
+                    </View>
+
+                    {/*<<<<<<<<<<<<<<<<<<<<<< user first message receive >>>>>>>>>>>>>>> */}
+                    <View style={{ flexDirection: "row", width: "90%" }}>
+                        <View style={styles._profile_main_of_receive_message}>
+                            <Image source={require('./../../assets/mentorschat2.png')} style={styles._profile_main_of_receive_message} />
+                        </View>
+                        <View style={{ flexDirection: "row", alignItems: "center", width: "80%" }}>
+                            <Image source={require('./../../assets/first_messge_receive.png')} style={{ width: 17, height: 17 }} />
+                            <Text style={styles.first_messge_receive}>fsdfdsfdfds</Text>
+                        </View>
+                    </View>
+
+                    {/*<<<<<<<<<<<<<<<<<<<<<< user first message send >>>>>>>>>>>>>>> */}
+                    <View style={{ flexDirection: "row", width: "90%", marginTop: 10, alignSelf: "flex-end" }}>
+                        <View style={{ alignItems: "center", marginTop: 10 }}>
+                            <View style={{ flexDirection: "row", alignItems: "center", width: "80%", alignSelf: "flex-end", justifyContent: "flex-end", marginRight: 10 }}>
+                                <Text style={styles.first_messge_sent}>fsdf ds ds ds ddds</Text>
+                                <Image source={require('./../../assets/first_messge_sent.png')} style={{ width: 17, height: 17 }} />
+                            </View>
+                        </View>
+                        <View style={styles._profile_main_of_receive_message}>
+                            <Image source={require('./../../assets/mentorschat5.png')} style={styles._profile_main_of_sent_message} />
+                        </View>
+                    </View>
 
                     <View style={{ marginBottom: 30 }}></View>
                 </View>
@@ -136,7 +230,7 @@ const styles = StyleSheet.create({
         width: 46,
         height: 46,
         borderRadius: 100,
-        marginRight: 10
+        marginRight: 10,
     },
     _profile: {
         width: 46,
@@ -150,6 +244,7 @@ const styles = StyleSheet.create({
         marginLeft: "5%",
         marginRight: "5%",
         flexDirection: 'row',
+        backgroundColor: "white",
     },
     _type_message: {
         borderRadius: 100,
@@ -170,6 +265,44 @@ const styles = StyleSheet.create({
     _add: {
         paddingBottom: 5,
         paddingTop: 5,
+    },
+    _profile_main_of_receive_message: {
+        width: 46,
+        height: 46,
+        borderRadius: 100,
+        marginRight: 5
+
+    },
+    _profile_main_of_sent_message: {
+        width: 46,
+        height: 46,
+        borderRadius: 100,
+        marginRight: 5
+
+    },
+    first_messge_receive: {
+        backgroundColor: "#FF5757",
+        borderRadius: 100,
+        paddingRight: 20,
+        paddingLeft: 20,
+        paddingTop: 5,
+        paddingBottom: 5,
+        marginLeft: -10,
+        color: "white",
+        fontWeight: "bold",
+        fontSize: 16
+    },
+    first_messge_sent: {
+        backgroundColor: "#FF5757",
+        borderRadius: 100,
+        paddingRight: 20,
+        paddingLeft: 20,
+        paddingTop: 5,
+        paddingBottom: 5,
+        marginRight: -10,
+        color: "white",
+        fontWeight: "bold",
+        fontSize: 16
     }
 
 

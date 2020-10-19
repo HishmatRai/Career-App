@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, TouchableOpacityBase, ScrollView } from "react-native";
-import { Zocial } from '@expo/vector-icons';
+import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
-import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
 
 import { AntDesign } from '@expo/vector-icons';
 const window = Dimensions.get("window");
@@ -32,7 +28,9 @@ const Notification = (props) => {
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  HEADER SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.goBack()}
+                >
                     <Ionicons name="md-arrow-round-back" size={24} color="#FF5757" />
                 </TouchableOpacity >
                 <TouchableOpacity>
@@ -53,7 +51,8 @@ const Notification = (props) => {
 
                 <View style={{ margin: 20 }}>
                     {/* <<<<<<<<<< Message Card No 01 >>>>>>>>>> */}
-                    <View style={styles._notification_main}>
+                    <TouchableOpacity style={styles._notification_main}
+                        onPress={() => props.navigation.navigate("ChatWithMentors")}>
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/notification1.png')} style={styles._user_profile} />
                         </View>
@@ -64,10 +63,11 @@ const Notification = (props) => {
                             </View>
                             <Text style={styles._time}>18 min ago</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
                     {/* <<<<<<<<<< Message Card No 02 >>>>>>>>>> */}
-                    <View style={styles._notification_main}>
+                    <TouchableOpacity style={styles._notification_main}
+                        onPress={() => props.navigation.navigate("ChatWithMentors")}>
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/notification1.png')} style={styles._user_profile} />
                         </View>
@@ -78,10 +78,11 @@ const Notification = (props) => {
                             </View>
                             <Text style={styles._time}>18 min ago</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
                     {/* <<<<<<<<<< Message Card No 03 >>>>>>>>>> */}
-                    <View style={styles._notification_main}>
+                    <TouchableOpacity style={styles._notification_main}
+                        onPress={() => props.navigation.navigate("ChatWithMentors")}>
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/notification1.png')} style={styles._user_profile} />
                         </View>
@@ -92,11 +93,12 @@ const Notification = (props) => {
                             </View>
                             <Text style={styles._time}>18 min ago</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
 
                     {/* <<<<<<<<<< Message Card No 04 >>>>>>>>>> */}
-                    <View style={styles._notification_main}>
+                    <TouchableOpacity style={styles._notification_main}
+                        onPress={() => props.navigation.navigate("ChatWithMentors")}>
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/notification1.png')} style={styles._user_profile} />
                         </View>
@@ -107,10 +109,11 @@ const Notification = (props) => {
                             </View>
                             <Text style={styles._time}>18 min ago</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
                     {/* <<<<<<<<<< Message Card No 05 >>>>>>>>>> */}
-                    <View style={styles._notification_main}>
+                    <TouchableOpacity style={styles._notification_main}
+                        onPress={() => props.navigation.navigate("ChatWithMentors")}>
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/notification1.png')} style={styles._user_profile} />
                         </View>
@@ -121,10 +124,11 @@ const Notification = (props) => {
                             </View>
                             <Text style={styles._time}>18 min ago</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
                     {/* <<<<<<<<<< Message Card No 06 >>>>>>>>>> */}
-                    <View style={styles._notification_main}>
+                    <TouchableOpacity style={styles._notification_main}
+                        onPress={() => props.navigation.navigate("ChatWithMentors")}>
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/notification1.png')} style={styles._user_profile} />
                         </View>
@@ -135,10 +139,11 @@ const Notification = (props) => {
                             </View>
                             <Text style={styles._time}>18 min ago</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
                     {/* <<<<<<<<<< Missed Call Card No 01 >>>>>>>>>> */}
-                    <View style={styles._notification_main}>
+                    <TouchableOpacity style={styles._notification_main}
+                        onPress={() => props.navigation.navigate("VideoCall")}>
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/notification1.png')} style={styles._user_profile} />
                         </View>
@@ -149,7 +154,7 @@ const Notification = (props) => {
                             </View>
                             <Text style={styles._time}>18 min ago</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
 

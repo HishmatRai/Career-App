@@ -6,7 +6,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
+import Dropdown from '../components/datepicker'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -21,6 +21,8 @@ const Settings = (props) => {
         setDimensions({ window, screen });
     };
 
+    const [toggle, settoggle] = useState(true);
+
     useEffect(() => {
         Dimensions.addEventListener("change", onChange);
         return () => {
@@ -34,7 +36,10 @@ const Settings = (props) => {
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  HEADER SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.goBack()}
+
+                >
                     <Ionicons name="md-arrow-round-back" size={24} color="#FF5757" />
                 </TouchableOpacity >
                 <TouchableOpacity>
@@ -55,14 +60,19 @@ const Settings = (props) => {
                             <FontAwesome5 name="file-export" size={20} color="#FF5757" />
                             <Text style={styles._expot_data}>Export Data</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
+                        <TouchableOpacity style={{ flexDirection: "row" }}
+                            onPress={() => props.navigation.navigate("Mentors")}
+                        >
                             <Text style={styles._mentor}>Mentor</Text>
                             <Entypo name="chevron-right" size={20} color="#FF5757" />
                         </TouchableOpacity>
                     </View>
 
                     {/* <<<<<<<<<<<<<<<<<<<    Account Setting  >>>>>>>>>>>>>>>>>> */}
-                    <TouchableOpacity style={{ flexDirection: "row", marginTop: 20 }}>
+                    <TouchableOpacity style={{ flexDirection: "row", marginTop: 20 }}
+                        onPress={() => props.navigation.navigate("Profile")}
+
+                    >
                         <MaterialCommunityIcons name="account-edit" size={24} color="#FF5757" />
                         <Text style={styles._expot_data}>Account Settings</Text>
                     </TouchableOpacity>
@@ -98,9 +108,14 @@ const Settings = (props) => {
                             <Ionicons name="ios-notifications-outline" size={20} color="#FF5757" />
                             <Text style={styles._reminders}>Reminders</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <Text style={styles._mentor}>Button</Text>
-                        </TouchableOpacity>
+                        <View style={{ flexDirection: "row" }}>
+                            <TouchableOpacity style={styles._on_button}>
+                                <Text style={styles._on_button_text}>On</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles._off_button}>
+                                <Text style={styles._off_button_text}>Off</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
                     {/* <<<<<<<<<<<<<<<<<<<    New  Message  >>>>>>>>>>>>>>>>>> */}
@@ -109,9 +124,14 @@ const Settings = (props) => {
                             <Feather name="message-circle" size={15} color="#FF5757" />
                             <Text style={styles._new_message}>New Messages</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <Text style={styles._mentor}>Button</Text>
-                        </TouchableOpacity>
+                        <View style={{ flexDirection: "row" }}>
+                            <TouchableOpacity style={styles._on_button}>
+                                <Text style={styles._on_button_text}>On</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles._off_button}>
+                                <Text style={styles._off_button_text}>Off</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
                     {/* <<<<<<<<<<<<<<<<<<<    New Chat Message  >>>>>>>>>>>>>>>>>> */}
@@ -120,9 +140,14 @@ const Settings = (props) => {
                             <Ionicons name="ios-chatboxes" size={18} color="#FF5757" />
                             <Text style={styles._new_message}>New Chat Messages</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <Text style={styles._mentor}>Button</Text>
-                        </TouchableOpacity>
+                        <View style={{ flexDirection: "row" }}>
+                            <TouchableOpacity style={styles._on_button}>
+                                <Text style={styles._on_button_text}>On</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles._off_button}>
+                                <Text style={styles._off_button_text}>Off</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
                     {/* <<<<<<<<<<<<<<<<<<<    Missed video Calls  >>>>>>>>>>>>>>>>>> */}
@@ -131,9 +156,14 @@ const Settings = (props) => {
                             <Ionicons name="ios-videocam" size={20} color="#FF5757" />
                             <Text style={styles._help_center}>Missed video Calls</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <Text style={styles._mentor}>Button</Text>
-                        </TouchableOpacity>
+                        <View style={{ flexDirection: "row" }}>
+                            <TouchableOpacity style={styles._on_button}>
+                                <Text style={styles._on_button_text}>On</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles._off_button}>
+                                <Text style={styles._off_button_text}>Off</Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
                     {/* <<<<<<<<<<<<<<<<<<<   Subscription  >>>>>>>>>>>>>>>>>> */}
@@ -157,7 +187,8 @@ const Settings = (props) => {
                     {/* <<<<<<<<<<<<<<<<<<<   FAQ  >>>>>>>>>>>>>>>>>> */}
                     <View style={{ marginTop: 20 }}>
                         <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <Ionicons name="ios-help-circle-outline" size={20} color="#FF5757" />
+                            {/* <Ionicons name="ios-help-circle-outline" size={20} color="#FF5757" /> */}
+                            <Image source={require('./../../assets/faq.png')} style={{ marginTop: 5 }} />
                             <Text style={styles._help_center}>FAQ</Text>
                         </TouchableOpacity>
                     </View>
@@ -165,7 +196,9 @@ const Settings = (props) => {
                     {/* <<<<<<<<<<<<<<<<<<<   Instuctions  >>>>>>>>>>>>>>>>>> */}
                     <View style={{ marginTop: 20 }}>
                         <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <Ionicons name="ios-help-circle-outline" size={20} color="#FF5757" />
+                            {/* <Ionicons name="ios-help-circle-outline" size={20} color="#FF5757" /> */}
+                            <Image source={require('./../../assets/instruction.png')} style={{ marginTop: 5 }} />
+
                             <Text style={styles._help_center}>Instuctions</Text>
                         </TouchableOpacity>
                     </View>
@@ -173,7 +206,9 @@ const Settings = (props) => {
                     {/* <<<<<<<<<<<<<<<<<<<   About Us  >>>>>>>>>>>>>>>>>> */}
                     <View style={{ marginTop: 20 }}>
                         <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <Ionicons name="ios-help-circle-outline" size={20} color="#FF5757" />
+                            {/* <Ionicons name="ios-help-circle-outline" size={20} color="#FF5757" /> */}
+                            <Image source={require('./../../assets/about.png')} style={{ marginTop: 5 }} />
+
                             <Text style={styles._help_center}>About Us</Text>
                         </TouchableOpacity>
                     </View>
@@ -189,7 +224,9 @@ const Settings = (props) => {
                     {/* <<<<<<<<<<<<<<<<<<<   Rating $ Reviews  >>>>>>>>>>>>>>>>>> */}
                     <View style={{ marginTop: 20 }}>
                         <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <FontAwesome name="share-alt" size={18} color="#FF5757" />
+                            {/* <FontAwesome name="share-alt" size={18} color="#FF5757" /> */}
+                            <Image source={require('./../../assets/user.png')} style={{ marginTop: 5 }} />
+
                             <Text style={styles._help_center}>Rating & Reviews</Text>
                         </TouchableOpacity>
                     </View>
@@ -197,7 +234,9 @@ const Settings = (props) => {
                     {/* <<<<<<<<<<<<<<<<<<<    Report Bug  >>>>>>>>>>>>>>>>>> */}
                     <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 20 }}>
                         <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <Ionicons name="ios-videocam" size={20} color="#FF5757" />
+                            {/* <Ionicons name="ios-videocam" size={20} color="#FF5757" /> */}
+                            <Image source={require('./../../assets/bug.png')} style={{ marginTop: 5 }} />
+
                             <Text style={styles._help_center}>Report Bug</Text>
                         </TouchableOpacity>
                         <TouchableOpacity>
@@ -207,16 +246,24 @@ const Settings = (props) => {
 
                     {/* <<<<<<<<<<<<<<<<<<<   Payment Mothod  >>>>>>>>>>>>>>>>>> */}
                     <View style={{ marginTop: 20 }}>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <FontAwesome name="share-alt" size={18} color="#FF5757" />
+                        <TouchableOpacity style={{ flexDirection: "row" }}
+                            onPress={() => props.navigation.navigate("PaymentMethods1")}
+                        >
+                            {/* <FontAwesome name="share-alt" size={18} color="#FF5757" /> */}
+                            <Image source={require('./../../assets/payment-method.png')} style={{ marginTop: 5 }} />
+
                             <Text style={styles._help_center}>Payment Method</Text>
                         </TouchableOpacity>
                     </View>
 
                     {/* <<<<<<<<<<<<<<<<<<<   Earnings  >>>>>>>>>>>>>>>>>> */}
                     <View style={{ marginTop: 20 }}>
-                        <TouchableOpacity style={{ flexDirection: "row" }}>
-                            <FontAwesome name="share-alt" size={18} color="#FF5757" />
+                        <TouchableOpacity style={{ flexDirection: "row" }}
+                            onPress={() => props.navigation.navigate("Earnings")}
+                        >
+                            {/* <FontAwesome name="share-alt" size={18} color="#FF5757" /> */}
+                            <Image source={require('./../../assets/earn.png')} style={{ marginTop: 5 }} />
+
                             <Text style={styles._help_center}>Earnings </Text>
                         </TouchableOpacity>
                     </View>
@@ -276,6 +323,28 @@ const styles = StyleSheet.create({
         color: "#FF5757",
         borderBottomWidth: 1,
         borderBottomColor: "#FF5757"
+    },
+    _on_button: {
+        backgroundColor: "#FF5757",
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5,
+    },
+    _off_button: {
+        backgroundColor: "white",
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 5,
+    },
+    _on_button_text: {
+        color: "white",
+        fontWeight: "bold",
+        paddingLeft: 10,
+        paddingRight: 10
+    },
+    _off_button_text: {
+        color: "black",
+        fontWeight: "bold",
+        paddingLeft: 10,
+        paddingRight: 10
     }
 
 

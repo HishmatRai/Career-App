@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, TouchableOpacityBase, ScrollView } from "react-native";
+import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, Picker, ScrollView } from "react-native";
 import { Zocial } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
+import Dropdown from '../components/datepicker'
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
@@ -23,29 +23,44 @@ const Inbox = (props) => {
             Dimensions.removeEventListener("change", onChange);
         };
     });
-
+    const [selectedValue, setSelectedValue] = useState("java");
     return (
         <View style={styles.container}>
             <StatusBar translucent backgroundColor="#FF5757" />
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  HEADER SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.goBack()}>
                     <Ionicons name="md-arrow-round-back" size={24} color="#FF5757" />
                 </TouchableOpacity >
                 <TouchableOpacity>
                     <Text style={{ color: "#FF5757", fontSize: 20 }}>Inbox</Text>
                 </TouchableOpacity>
                 {/* <Image source={require('./../../assets/logo.png')} style={styles._logo} /> */}
-                <TouchableOpacity style={{ marginLeft: 180 }}>
+                <TouchableOpacity style={{ marginLeft: 180 }}
+                    onPress={() => props.navigation.navigate("Profile")}>
+
                     <FontAwesome name="user" size={24} color="#FF5757" />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Notification")}>
                     <Ionicons name="md-notifications-outline" size={24} color="#FF5757" />
                 </TouchableOpacity>
             </View>
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  DROPDOWN SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
-            <Text style={{ color: "red", textAlign: "center" }}>Dropdown</Text>
+            {/* dropdown */}
+            <View style={{ marginTop: 20 }}></View>
+            <View style={styles._dropdown}>
+                <Picker
+                    selectedValue={selectedValue}
+                    style={{ height: 40, width: "90%" }}
+                    onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+                >
+                    <Picker.Item label="All Activity" value="java" />
+                    <Picker.Item label="All Activity" value="js" />
+                </Picker>
+            </View>
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  INBOX MESSAGE SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <ScrollView>
@@ -114,8 +129,8 @@ const Inbox = (props) => {
                     </TouchableOpacity>
                 </View>
 
-                      {/* >>>>>>>>>> USER 6 MESSAGE    <<<<<<<<< */}
-                      <View style={styles._inbox_message_main}>
+                {/* >>>>>>>>>> USER 6 MESSAGE    <<<<<<<<< */}
+                <View style={styles._inbox_message_main}>
                     <TouchableOpacity style={styles._message_noti_main}>
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/inbox5.png')} style={styles._profile_image} />
@@ -126,7 +141,7 @@ const Inbox = (props) => {
                         </View>
                     </TouchableOpacity>
                 </View>
-                <View style={{marginBottom:100}}></View>
+                <View style={{ marginBottom: 100 }}></View>
             </ScrollView>
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  BOTTOM NAVIGATION SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._bottom_navigation_main_view}>
@@ -138,11 +153,15 @@ const Inbox = (props) => {
                     <Ionicons name="ios-clipboard" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Career Boards</Text>
                 </TouchableOpacity>
-                <TouchableOpacity >
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Mentors")}
+                >
                     <MaterialCommunityIcons name="comment-account-outline" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Mentors</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Settings")}
+                >
                     <Fontisto name="player-settings" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Settings</Text>
                 </TouchableOpacity>
@@ -248,7 +267,17 @@ const styles = StyleSheet.create({
         width: 68,
         height: 68,
         borderRadius: 100
-    }
+    },
+    _dropdown: {
+        // flex: 1,
+        marginRight: "25%",
+        marginLeft: "25%",
+        borderRadius: 30,
+        color: "red",
+        textAlign: "center",
+        justifyContent: "center",
+        color: "white"
+    },
 
 });
 

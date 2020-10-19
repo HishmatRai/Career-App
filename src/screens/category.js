@@ -6,7 +6,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
+import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");

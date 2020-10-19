@@ -6,7 +6,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from './../components/dropdown'
+import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -43,7 +43,9 @@ const Mentors = (props) => {
                 <TouchableOpacity style={{ marginLeft: 150 }}>
                     <AntDesign name="search1" size={24} color="#FF5757" />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Notification")}
+                >
                     <Ionicons name="md-notifications-outline" size={24} color="#FF5757" />
                 </TouchableOpacity>
             </View>
@@ -63,13 +65,19 @@ const Mentors = (props) => {
                                     <TouchableOpacity style={styles._profile_main}>
                                         <Image source={require('./../../assets/mentors1.png')} style={styles._profile_image} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => props.navigation.navigate("ChatWithMentors")}
+                                    >
                                         <Ionicons name="ios-chatboxes" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => props.navigation.navigate("VideoCall")}
+                                    >
                                         <Ionicons name="ios-call" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => props.navigation.navigate("VideoCall")}
+                                    >
                                         <Ionicons name="ios-videocam" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
                                 </View>
@@ -126,13 +134,16 @@ const Mentors = (props) => {
                                     <TouchableOpacity style={styles._profile_main}>
                                         <Image source={require('./../../assets/mentors1.png')} style={styles._profile_image} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => props.navigation.navigate("ChatWithMentors")}>
                                         <Ionicons name="ios-chatboxes" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                     onPress={() => props.navigation.navigate("VideoCall")}>
                                         <Ionicons name="ios-call" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                     onPress={() => props.navigation.navigate("VideoCall")}>
                                         <Ionicons name="ios-videocam" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
                                 </View>
@@ -189,13 +200,16 @@ const Mentors = (props) => {
                                     <TouchableOpacity style={styles._profile_main}>
                                         <Image source={require('./../../assets/mentors1.png')} style={styles._profile_image} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => props.navigation.navigate("ChatWithMentors")}>
                                         <Ionicons name="ios-chatboxes" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                     onPress={() => props.navigation.navigate("VideoCall")}>
                                         <Ionicons name="ios-call" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity
+                                     onPress={() => props.navigation.navigate("VideoCall")}>
                                         <Ionicons name="ios-videocam" size={24} color="#FF5757" style={styles._icons} />
                                     </TouchableOpacity>
                                 </View>
@@ -261,7 +275,9 @@ const Mentors = (props) => {
                     <MaterialCommunityIcons name="comment-account-outline" size={24} color="#C5BFBF" style={styles._bottom_navigation_icons_active} />
                     <Text style={styles._bottom_navigation_text_active}>Mentors</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                 onPress={() => props.navigation.navigate("Settings")}
+                >
                     <Fontisto name="player-settings" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Settings</Text>
                 </TouchableOpacity>
