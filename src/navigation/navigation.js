@@ -19,8 +19,7 @@ import CameraScreen from '../screens/camera_screen'
 import CameraGoLive from './../screens/camera_go_live_screen'
 import Live from './../screens/live'
 import VideoCall from './../screens/video_call'
-import dropdown from '../components/datepicker'
-import Location from './../components/location'
+import Message from './../screens/message'
 const Stack = createStackNavigator();
 
 function Navigation() {
@@ -28,8 +27,7 @@ function Navigation() {
         <NavigationContainer>
             <Stack.Navigator>
 
-                {/* <Stack.Screen name="Location" component={Location} options={{ headerShown: false }} /> */}
-                {/* <Stack.Screen name="dropdown" component={dropdown} options={{ headerShown: false }} /> */}
+
                 <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
                 <Stack.Screen name="Inbox" component={Inbox} options={{ headerShown: false }} />
@@ -48,6 +46,7 @@ function Navigation() {
                 <Stack.Screen name="CameraGoLive" component={CameraGoLive} options={{ headerShown: false }} />
                 <Stack.Screen name="Live" component={Live} options={{ headerShown: false }} />
                 <Stack.Screen name="VideoCall" component={VideoCall} options={{ headerShown: false }} />
+                <Stack.Screen name="Message" component={Message} options={{ headerShown: false }} />
 
 
             </Stack.Navigator>

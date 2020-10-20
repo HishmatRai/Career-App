@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, TextInput, ScrollView, TouchableOpacityBase } from "react-native";
-import { Zocial } from '@expo/vector-icons';
+import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, ScrollView } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
-import { Fontisto } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from '../components/datepicker'
-import { AntDesign } from '@expo/vector-icons';
-import ToggleButton from '../components/toggle_button'
-import { Entypo } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
-import Chackbox from '../components/checkbox'
-import { round } from "react-native-reanimated";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 

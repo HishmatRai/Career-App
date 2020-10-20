@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, Image, StatusBar, ScrollView, TouchableOpacityBase } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image, StatusBar } from 'react-native';
 import { Camera } from 'expo-camera';
-import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 export default function VideoCall() {
     const [hasPermission, setHasPermission] = useState(null);
@@ -79,11 +73,6 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     _call_main: {
-        // position:"absolute",
-        // bottom: 100,
-        // alignItems: "center",
-        // alignItems: "center",
-        // justifyContent: "space-around",
         marginTop: "130%"
 
     },

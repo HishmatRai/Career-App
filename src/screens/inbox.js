@@ -5,8 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from '../components/datepicker'
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
@@ -66,7 +64,9 @@ const Inbox = (props) => {
             <ScrollView>
                 {/* >>>>>>>>>> USER 1 MESSAGE    <<<<<<<<< */}
                 <View style={styles._inbox_message_main}>
-                    <TouchableOpacity style={styles._message_noti_main}>
+                    <TouchableOpacity style={styles._message_noti_main}
+                        onPress={() => props.navigation.navigate("Message")}
+                    >
                         <View style={styles._profile_main}>
                             <Image source={require('./../../assets/inbox1.png')} style={styles._profile_image} />
                         </View>
@@ -149,7 +149,9 @@ const Inbox = (props) => {
                     <Zocial name="email" size={24} color="#C5BFBF" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text_active}>Inbox</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Category")}
+                >
                     <Ionicons name="ios-clipboard" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Career Boards</Text>
                 </TouchableOpacity>

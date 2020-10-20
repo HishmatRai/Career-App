@@ -187,7 +187,9 @@ const CareerSearch = (props) => {
                     <Zocial name="email" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Inbox</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => props.navigation.navigate("Category")}
+                >
                     <Ionicons name="ios-clipboard" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Career Boards</Text>
                 </TouchableOpacity>

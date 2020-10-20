@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, ScrollView, TextInput, TouchableOpacityBase } from "react-native";
+import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, ScrollView } from "react-native";
 import { Zocial } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
 import Rating from './../components/rating'
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
@@ -267,7 +264,9 @@ const Mentors = (props) => {
                     <Zocial name="email" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Inbox</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => props.navigation.navigate("Category")}
+                >
                     <Ionicons name="ios-clipboard" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Career Boards</Text>
                 </TouchableOpacity>

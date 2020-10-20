@@ -1,5 +1,3 @@
-// import CheckboxField from 'react-native-checkbox-field'; // Field with label
-// import { Checkbox } from 'react-native-checkbox-field'; // Checkbox only
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import CheckboxField from 'react-native-checkbox-field';

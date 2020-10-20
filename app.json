@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Career-Apps",
-    "slug": "Career-Apps",
+    "name": "Career",
+    "slug": "Career",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "ios": {
+      "bundleIdentifier": "com.Career.Career",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.Career.Career",
+      "versionCode": 1
     }
   }
 }

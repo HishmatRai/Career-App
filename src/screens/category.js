@@ -5,8 +5,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
-import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
@@ -31,7 +29,9 @@ const Category = (props) => {
 
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  HEADER SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._header_main}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.goBack()}
+                >
                     <Ionicons name="md-arrow-round-back" size={24} color="#FF5757" />
                 </TouchableOpacity >
                 <TouchableOpacity>
@@ -41,10 +41,12 @@ const Category = (props) => {
                 <TouchableOpacity style={{ marginLeft: 30 }}>
                     <AntDesign name="search1" size={24} color="#FF5757" />
                 </TouchableOpacity>
-                <TouchableOpacity >
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Profile")} >
                     <FontAwesome name="user" size={24} color="#FF5757" />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Notification")} >
                     <Ionicons name="md-notifications-outline" size={24} color="#FF5757" />
                 </TouchableOpacity>
             </View>
@@ -70,21 +72,21 @@ const Category = (props) => {
                         multiline={true}
                     />
 
-                     {/* <<<<<<<<<<<<<<<<  Started >>>>>>>>>>>>>>>> */}
-                     <Text style={styles._heading}>How to get Started</Text>
+                    {/* <<<<<<<<<<<<<<<<  Started >>>>>>>>>>>>>>>> */}
+                    <Text style={styles._heading}>How to get Started</Text>
                     <TextInput style={styles._disc_input}
                         numberOfLines={10}
                         multiline={true}
                     />
 
-                       {/* <<<<<<<<<<<<<<<<  Started >>>>>>>>>>>>>>>> */}
-                       <Text style={styles._heading}>Salary Range</Text>
+                    {/* <<<<<<<<<<<<<<<<  Started >>>>>>>>>>>>>>>> */}
+                    <Text style={styles._heading}>Salary Range</Text>
                     <TextInput style={styles._salary_input}
                         numberOfLines={10}
                         multiline={true}
                     />
                 </View>
-                <View style={{marginBottom:100}}></View>
+                <View style={{ marginBottom: 100 }}></View>
             </ScrollView>
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  BOTTOM NAVIGATION SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._bottom_navigation_main_view}>
@@ -95,14 +97,17 @@ const Category = (props) => {
                     <Text style={styles._bottom_navigation_text}>Inbox</Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Ionicons name="ios-clipboard" size={24} color="white" style={styles._bottom_navigation_icons} />
-                    <Text style={styles._bottom_navigation_text}>Career Boards</Text>
+                    <Ionicons name="ios-clipboard" size={24} color="#C5BFBF" style={styles._bottom_navigation_icons} />
+                    <Text style={styles._bottom_navigation_text_active}>Career Boards</Text>
                 </TouchableOpacity>
-                <TouchableOpacity >
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Mentors")} >
                     <MaterialCommunityIcons name="comment-account-outline" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Mentors</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => props.navigation.navigate("Settings")}
+                >
                     <Fontisto name="player-settings" size={24} color="white" style={styles._bottom_navigation_icons} />
                     <Text style={styles._bottom_navigation_text}>Settings</Text>
                 </TouchableOpacity>
@@ -188,16 +193,21 @@ const styles = StyleSheet.create({
         marginBottom: 5,
         paddingLeft: 6,
         fontWeight: 'normal',
-        marginTop:10
+        marginTop: 10
     },
-    _salary_input:{
+    _salary_input: {
         borderColor: "#FF5757",
         borderWidth: 2,
         height: 40,
         backgroundColor: "#FED4D4",
         borderRadius: 10,
         padding: 10
-    }
+    },
+    _bottom_navigation_text_active: {
+        color: "#C5BFBF",
+        textAlign: "center",
+        fontWeight: "bold"
+    },
 
 
 

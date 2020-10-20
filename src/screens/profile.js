@@ -5,7 +5,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Dropdown from '../components/datepicker'
 import { AntDesign } from '@expo/vector-icons';
 import ToggleButton from './../components/toggle_button'
-import Dropdownw from '../components/datepicker'
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 

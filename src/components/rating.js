@@ -1,7 +1,3 @@
-// React Native Custom Star Rating Bar
-// https://aboutreact.com/react-native-custom-star-rating-bar/
-
-// import React in our code
 import React, { useState } from 'react';
 
 // import all the components we are going to use

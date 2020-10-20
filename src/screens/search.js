@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, ScrollView, Picker, TouchableOpacityBase } from "react-native";
+import { View, StyleSheet, Text, Dimensions, Image, StatusBar, TouchableOpacity, ScrollView, Picker } from "react-native";
 import { Zocial } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-import Dropdown from '../components/datepicker'
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
