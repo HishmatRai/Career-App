@@ -339,13 +339,15 @@ const Messsage = (props) => {
             </ScrollView>
             {/* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  BOTTOM NAVIGATION SECTION  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */}
             <View style={styles._bottom_navigation_main_view}>
-                <TouchableOpacity>
-                    <Zocial name="email" size={24} color="#C5BFBF" style={styles._bottom_navigation_icons} />
-                    <Text style={styles._bottom_navigation_text_active}>Inbox</Text>
+                <TouchableOpacity
+                onPress={() => props.navigation.navigate("Inbox")}
+                >
+                    <Zocial name="email" size={24} color="white" style={styles._bottom_navigation_icons} />
+                    <Text style={styles._bottom_navigation_text}>Inbox</Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                    <Ionicons name="ios-clipboard" size={24} color="white" style={styles._bottom_navigation_icons} />
-                    <Text style={styles._bottom_navigation_text}>Career Boards</Text>
+                    <Ionicons name="ios-clipboard" size={24} color="#C5BFBF" style={styles._bottom_navigation_icons} />
+                    <Text style={styles._bottom_navigation_text_active}>Career Boards</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     onPress={() => props.navigation.navigate("Mentors")}
